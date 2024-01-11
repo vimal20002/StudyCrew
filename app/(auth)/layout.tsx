@@ -3,8 +3,6 @@ import '../globals.css'
 import React from 'react'
 import { ClerkProvider } from '@clerk/nextjs'
 import type { Metadata, Viewport } from 'next'
-import Head from 'next/head'
-import Link from 'next/link'
 import { ThemeProvider } from '@/components/theme-provider'
 import icons from '@/lib/metadata/icons'
 import openGraph from '@/lib/metadata/openGraph'
@@ -16,6 +14,7 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
+	metadataBase: new URL('http://localhost:3000'),
 	title: 'StudyCrew',
 	description:
     'Making education more accessible, collaborative, and engaging.',
@@ -43,9 +42,6 @@ export default function RootLayout ({
 	return (
 		<ClerkProvider>
 			<html lang="en">
-				<Head>
-					<Link rel="shortcut icon" href="/public/assets/favicon.ico" />
-				</Head>
 				<body
 					className='flex min-h-screen flex-1 flex-col
           items-center px-6 pb-10 pt-28 max-md:pb-32 sm:px-10'
